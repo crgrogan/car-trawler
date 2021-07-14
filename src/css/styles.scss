@@ -1,1 +1,108 @@
+/* Variables */
+$font-stack: Arial, Helvetica, sans-serif;
+$primary-color: #d42828;
+$primary-font-color: #000000;
+$secondary-font-color: #ffffff;
 
+/* CSS reset */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+html {
+  font-size: 62.5%; /* 1rem = 10px */
+  min-height: 100%;
+}
+
+body {
+  line-height: 1.6;
+  scroll-behavior: smooth;
+  font-size: 16px;
+  font-size: 1.6rem;
+  font-family: $font-stack;
+  color: $primary-font-color;
+}
+
+h1 {
+  font-size: 3.6rem;
+}
+h2 {
+  font-size: 2.4rem;
+}
+h3 {
+  font-size: 1.9rem;
+}
+
+h4 {
+  font-size: 1.6rem;
+}
+
+textarea {
+  resize: vertical;
+}
+
+input,
+textarea {
+  font-family: inherit;
+}
+::-webkit-input-placeholder {
+  font-family: inherit;
+}
+:-moz-placeholder {
+  font-family: inherit;
+}
+::-moz-placeholder {
+  font-family: inherit;
+}
+:-ms-input-placeholder {
+  font-family: inherit;
+}
+
+ul {
+  list-style-type: none;
+  margin: 0;
+  padding: 0;
+}
+
+a {
+  text-decoration: none;
+  color: inherit;
+}
+
+button:hover {
+  cursor: pointer;
+}
+
+.wrapper {
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+  margin: 0 auto;
+}
+
+.content {
+  flex-grow: 1;
+}
+
+/* Header */
+
+.header {
+  color: $secondary-font-color;
+  background-color: $primary-color;
+  padding: 0.5em 1em;
+}
+
+#brand-logo {
+  font-size: 2.5rem;
+}
+
+/* Footer */
+
+.footer {
+  color: $secondary-font-color;
+  background-color: $primary-color;
+  text-align: center;
+  padding: 0.5em 1em;
+}

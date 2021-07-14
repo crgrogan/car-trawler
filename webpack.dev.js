@@ -21,7 +21,7 @@ module.exports = {
       template: "./src/pages/details/index.html",
       inject: true,
       chunks: ["details"],
-      filename: "details.html",
+      filename: "details",
     }),
   ],
 
