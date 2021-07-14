@@ -9,12 +9,31 @@
   <body>
     <div class="wrapper">
       <!-- Header -->
-      <%= require('html-loader!../../partials/nav.html').default %>
+      <%= require('html-loader!../../partials/header.html').default %>
       <!-- Main -->
       <div class="content">
-        <div class="container">
-          <h1>Home</h1>
-        </div>
+        <section class="legend-section">
+          <div class="container">
+            <div>
+              <h4 class="pick-up-return-header">Pick Up Details</h4>
+              <div class="pick-up-return-info" id="pick-up-location"></div>
+              <div class="pick-up-return-info" id="pick-up-time"></div>
+            </div>
+            <div>
+              <h4 class="pick-up-return-header">Return Details</h4>
+              <div class="pick-up-return-info" id="return-location"></div>
+              <div class="pick-up-return-info" id="return-time"></h4>
+            </div>
+          </div>
+        </section>
+        <section class="cars-section">
+          <div class="container">
+            <div class="cars-list-info">
+              <span class="cars-list-length"></span>
+            </div>
+            <ul class="cars-list"></ul>
+          </div>
+        </section>
       </div>
       <!-- Footer -->
       <%= require('html-loader!../../partials/footer.html').default %>

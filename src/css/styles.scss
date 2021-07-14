@@ -3,6 +3,20 @@ $font-stack: Arial, Helvetica, sans-serif;
 $primary-color: #d42828;
 $primary-font-color: #000000;
 $secondary-font-color: #ffffff;
+$tertiary-font-color: #727171;
+
+/* Mixins */
+@mixin responsive_mobile() {
+  @media only screen and (max-width: 576px) {
+    @content;
+  }
+}
+
+@mixin responsive_tablet() {
+  @media only screen and (max-width: 768px) {
+    @content;
+  }
+}
 
 /* CSS reset */
 * {
@@ -86,12 +100,18 @@ button:hover {
   flex-grow: 1;
 }
 
+.container {
+  width: 90%;
+  max-width: 1250px;
+  margin: auto;
+}
+
 /* Header */
 
 .header {
   color: $secondary-font-color;
   background-color: $primary-color;
-  padding: 0.5em 1em;
+  padding: 0.5em 0;
 }
 
 #brand-logo {
@@ -104,5 +124,5 @@ button:hover {
   color: $secondary-font-color;
   background-color: $primary-color;
   text-align: center;
-  padding: 0.5em 1em;
+  padding: 0.5em 0;
 }
