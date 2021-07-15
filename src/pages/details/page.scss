@@ -1,0 +1,91 @@
+@import "../../css/styles.scss";
+
+.car-details {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  grid-template-rows: 1fr 0.5fr 0.5fr;
+  grid-template-areas:
+    "vehicle image"
+    "vendor image"
+    "price image";
+  padding: 3em 0;
+  row-gap: 2em;
+
+  .grid-section {
+    //padding: 0 0 1em 2em;
+  }
+
+  .section-body {
+    padding-left: 15px;
+  }
+
+  span {
+    margin-right: 1.5em;
+  }
+
+  .row {
+    margin-bottom: 1em;
+  }
+
+  img {
+    width: 100%;
+    max-width: 400px;
+  }
+
+  .grid-vehicle {
+    grid-area: vehicle;
+    background-color: #ebe9e9;
+  }
+
+  .grid-image {
+    grid-area: image;
+    padding-left: 2em;
+  }
+
+  .grid-vendor {
+    grid-area: vendor;
+    background-color: #ebe9e9;
+  }
+
+  .grid-price {
+    grid-area: price;
+    background-color: #ebe9e9;
+  }
+
+  .car-details-model {
+    margin-bottom: 0.5em;
+    background-color: #afaeae;
+    padding: 0.25em 15px;
+  }
+
+  .car-details-vendor-header,
+  .car-details-price-header {
+    margin-bottom: 1em;
+    background-color: #afaeae;
+    padding: 0.25em 15px;
+  }
+
+  .car-details-price {
+    font-size: 2.5rem;
+    font-weight: 700;
+  }
+}
+
+@include responsive_tablet() {
+  .car-details {
+    grid-template-columns: 1fr 0.75fr;
+  }
+}
+
+@include responsive_mobile() {
+  .car-details {
+    display: grid;
+    grid-template-columns: 1fr;
+    grid-template-rows: 0.5fr 1fr 0.75fr 0.75fr;
+    grid-template-areas:
+      "image"
+      "vehicle"
+      "vendor"
+      "price";
+  }
+}

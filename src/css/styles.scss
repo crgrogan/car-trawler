@@ -136,3 +136,16 @@ button:hover {
   padding: 0.5em 1em;
   text-transform: uppercase;
 }
+
+.available-icon {
+  height: 1rem;
+  width: 1rem;
+  border-radius: 50%;
+  background-color: #008000;
+  display: inline-block;
+  margin-left: 0.5em;
+}
+
+.bold {
+  font-weight: 700;
+}
