@@ -36,7 +36,23 @@ module.exports = {
         },
       },
       {
+        test: /\.styles.scss$/,
+        exclude: /node_modules/,
+        use: [
+          "sass-to-string",
+          {
+            loader: "sass-loader",
+            options: {
+              sassOptions: {
+                outputStyle: "compressed",
+              },
+            },
+          },
+        ],
+      },
+      {
         test: /\.scss$/,
+        exclude: /\.styles.scss$/,
         use: ["style-loader", "css-loader", "sass-loader"],
       },
     ],

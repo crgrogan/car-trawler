@@ -35,8 +35,7 @@
 }
 
 .cars-list {
-  border-top: 3px solid $primary-font-color;
-  border-bottom: 3px solid $primary-font-color;
+  border-top: 5px solid $primary-color;
 }
 
 @include responsive_mobile() {

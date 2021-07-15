@@ -1,10 +1,11 @@
 import("../../css/styles.scss");
 import("./page.scss");
 import data from "../../data/cars.json";
+import "../../components/card/main";
 
 const home = (function () {
   const init = () => {
-    // if data was not stored locally you would
+    // if data was not stored locally you could
     // call a method here to fetch the data
     const pickUpReturnInfo = data[0].VehAvailRSCore.VehRentalCore;
     const vendorsArray = data[0].VehAvailRSCore.VehVendorAvails;
@@ -14,6 +15,8 @@ const home = (function () {
 
   const flattenCarsArray = (vendors) => {
     const flattenedArray = [];
+    // loop through list of available vehicles for each vendor and
+    // add them to new array along with relevant vendor as a single object
     vendors.forEach((vendor) =>
       vendor.VehAvails.forEach((vehicle) => {
         flattenedArray.push({ vendor: vendor.Vendor["@Name"], ...vehicle });
@@ -32,12 +35,16 @@ const home = (function () {
 
     carsListLength.textContent = `${carsArray.length} results`;
 
-    carsArray.forEach((car) => {});
+    carsArray.forEach((car) => {
+      const cardElement = document.createElement("custom-card");
+      cardElement.carData = car;
+      carsListElement.appendChild(cardElement);
+    });
 
     pickUpLocation.textContent = pickUpReturnInfo.PickUpLocation["@Name"];
     pickUpTime.textContent = new Date(
       pickUpReturnInfo["@PickUpDateTime"]
-    ).toLocaleString("en-GB");
+    ).toLocaleString("en-US", { hour12: false });
 
     returnLocation.textContent = pickUpReturnInfo.ReturnLocation["@Name"];
     returnTime.textContent = new Date(

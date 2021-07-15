@@ -1,0 +1,83 @@
+@import "../../css/styles.scss";
+
+.card {
+  box-sizing: content-box;
+  display: flex;
+  flex-wrap: wrap;
+  border-bottom: 3px solid $tertiary-font-color;
+  padding: 1em 0;
+  margin: -0.75em 0 0 0;
+
+  .col-left {
+    flex-basis: 200px;
+    margin-top: 0.75em;
+
+    img {
+      width: 100%;
+    }
+  }
+
+  .col-middle {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+    padding: 0 1em;
+    flex-grow: 4;
+    min-height: 150px;
+    margin-top: 0.75em;
+  }
+
+  .car-info {
+    color: $tertiary-font-color;
+
+    span {
+      margin-right: 1em;
+    }
+  }
+
+  .col-right {
+    display: flex;
+    flex-direction: column;
+    flex-grow: 1;
+    justify-content: space-around;
+    text-align: center;
+    min-height: 150px;
+    margin-top: 0.75em;
+
+    .car-price-heading {
+      border-bottom: 1px solid $tertiary-font-color;
+    }
+
+    .car-price {
+      font-size: 2.5rem;
+      font-weight: 700;
+    }
+  }
+
+  .details-btn {
+    text-decoration: none;
+    cursor: pointer;
+    margin: 0 auto;
+  }
+}
+
+@include responsive_mobile() {
+  .card {
+    flex-direction: column;
+    border-bottom: 5px solid $tertiary-font-color;
+
+    .col-left {
+      max-height: 100px;
+      display: flex;
+      justify-content: center;
+
+      img {
+        max-width: 150px;
+      }
+    }
+
+    .col-middle {
+      text-align: center;
+    }
+  }
+}

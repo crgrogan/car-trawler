@@ -98,6 +98,7 @@ button:hover {
 
 .content {
   flex-grow: 1;
+  padding-bottom: 4em;
 }
 
 .container {
@@ -125,4 +126,13 @@ button:hover {
   background-color: $primary-color;
   text-align: center;
   padding: 0.5em 0;
+}
+
+/* General */
+
+.btn {
+  background-color: $primary-color;
+  color: $secondary-font-color;
+  padding: 0.5em 1em;
+  text-transform: uppercase;
 }
