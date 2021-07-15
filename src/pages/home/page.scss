@@ -26,12 +26,26 @@
 
 .cars-list-info {
   margin-bottom: 1em;
-}
+  display: flex;
+  justify-content: space-between;
 
-.cars-list-length {
-  color: $tertiary-font-color;
-  font-weight: 700;
-  text-transform: uppercase;
+  .cars-list-length {
+    color: $tertiary-font-color;
+    font-weight: 700;
+    text-transform: uppercase;
+    min-width: 100px;
+  }
+
+  label {
+    text-transform: uppercase;
+    color: $tertiary-font-color;
+    font-weight: 700;
+    margin-right: 0.5em;
+  }
+
+  select {
+    padding: 0.5em 1em 0.5em 0.5em;
+  }
 }
 
 .cars-list {
@@ -41,5 +55,11 @@
 @include responsive_mobile() {
   .legend .container {
     justify-content: space-between;
+  }
+
+  .cars-list-info {
+    label {
+      display: none;
+    }
   }
 }

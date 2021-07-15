@@ -10,10 +10,10 @@ class Card extends HTMLElement {
             ${styles}
         </style>
         <article class="card">
-            <div class="col-left">
+            <div class="col col-left">
               <img class="card-image" src="" alt="Image of car" />
             </div>
-            <div class="col-middle">
+            <div class="col col-middle">
               <h2 class="car-model"></h2>
               <h4 class="car-vendor"></h4>
               <div class="car-info">
@@ -27,7 +27,7 @@ class Card extends HTMLElement {
                 <span class="car-door-count"></span>
               </div>
             </div>
-            <div class="col-right">
+            <div class="col col-right">
                 <h3 class="car-price-heading">Total Price</h3>
                 <span class="car-price"></span>
                 <a href="/details" class="btn details-btn">View Details</a>

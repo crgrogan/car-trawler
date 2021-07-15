@@ -2,27 +2,31 @@ import("../../css/styles.scss");
 import("./page.scss");
 import data from "../../data/cars.json";
 import "../../components/card/main";
+import { flattenCarsArray } from "../../helpers/flattenArray";
+import { sortArrayByPrice } from "../../helpers/sortArray";
 
 const home = (function () {
+  let carsArray = [];
+
   const init = () => {
     // if data was not stored locally you could
     // call a method here to fetch the data
+    const defaultOrder = "asc";
     const pickUpReturnInfo = data[0].VehAvailRSCore.VehRentalCore;
     const vendorsArray = data[0].VehAvailRSCore.VehVendorAvails;
-    const carsArray = flattenCarsArray(vendorsArray);
-    renderData(carsArray, pickUpReturnInfo);
+    carsArray = flattenCarsArray(vendorsArray);
+    const sortedArray = sortArrayByPrice(carsArray, defaultOrder);
+    const selectElement = document.querySelector("select[name=order]");
+    addSelectChangeEventListener(selectElement);
+    renderData(sortedArray, pickUpReturnInfo);
   };
 
-  const flattenCarsArray = (vendors) => {
-    const flattenedArray = [];
-    // loop through list of available vehicles for each vendor and
-    // add them to new array along with relevant vendor as a single object
-    vendors.forEach((vendor) =>
-      vendor.VehAvails.forEach((vehicle) => {
-        flattenedArray.push({ vendor: vendor.Vendor["@Name"], ...vehicle });
-      })
-    );
-    return flattenedArray;
+  const addSelectChangeEventListener = (element) => {
+    element.addEventListener("change", function () {
+      const sortOrder = this.options[this.selectedIndex].value;
+      const sortedArray = sortArrayByPrice(carsArray, sortOrder);
+      renderData(sortedArray);
+    });
   };
 
   const renderData = (carsArray, pickUpReturnInfo) => {
@@ -30,26 +34,31 @@ const home = (function () {
     const pickUpTime = document.getElementById("pick-up-time");
     const returnLocation = document.getElementById("return-location");
     const returnTime = document.getElementById("return-time");
-    const carsListLength = document.querySelector(".cars-list-length");
+    const carsListLengthElement = document.querySelector(".cars-list-length");
     const carsListElement = document.querySelector(".cars-list");
 
-    carsListLength.textContent = `${carsArray.length} results`;
+    if (carsArray) {
+      carsListLengthElement.textContent = `${carsArray.length} results`;
+      carsListElement.innerHTML = "";
 
-    carsArray.forEach((car) => {
-      const cardElement = document.createElement("custom-card");
-      cardElement.carData = car;
-      carsListElement.appendChild(cardElement);
-    });
+      carsArray.forEach((car) => {
+        const cardElement = document.createElement("custom-card");
+        cardElement.carData = car;
+        carsListElement.appendChild(cardElement);
+      });
+    }
 
-    pickUpLocation.textContent = pickUpReturnInfo.PickUpLocation["@Name"];
-    pickUpTime.textContent = new Date(
-      pickUpReturnInfo["@PickUpDateTime"]
-    ).toLocaleString("en-US", { hour12: false });
+    if (pickUpReturnInfo) {
+      pickUpLocation.textContent = pickUpReturnInfo.PickUpLocation["@Name"];
+      pickUpTime.textContent = new Date(
+        pickUpReturnInfo["@PickUpDateTime"]
+      ).toLocaleString("en-US", { hour12: false });
 
-    returnLocation.textContent = pickUpReturnInfo.ReturnLocation["@Name"];
-    returnTime.textContent = new Date(
-      pickUpReturnInfo["@ReturnDateTime"]
-    ).toLocaleString("en-GB");
+      returnLocation.textContent = pickUpReturnInfo.ReturnLocation["@Name"];
+      returnTime.textContent = new Date(
+        pickUpReturnInfo["@ReturnDateTime"]
+      ).toLocaleString("en-GB");
+    }
   };
 
   return { init };

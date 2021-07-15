@@ -15,12 +15,12 @@
         <section class="legend-section">
           <div class="container">
             <div>
-              <h4 class="pick-up-return-header">Pick Up Details</h4>
+              <h4 class="pick-up-return-header">Pick Up</h4>
               <div class="pick-up-return-info" id="pick-up-location"></div>
               <div class="pick-up-return-info" id="pick-up-time"></div>
             </div>
             <div>
-              <h4 class="pick-up-return-header">Return Details</h4>
+              <h4 class="pick-up-return-header">Return</h4>
               <div class="pick-up-return-info" id="return-location"></div>
               <div class="pick-up-return-info" id="return-time"></h4>
             </div>
@@ -30,6 +30,13 @@
           <div class="container">
             <div class="cars-list-info">
               <span class="cars-list-length"></span>
+              <div class="cars-list-order">
+                <label for="order">Sort By</label>
+                <select name="order" id="order">
+                  <option value="asc">Price - Low to High</option>
+                  <option value="desc">Price - High to Low</option>
+                </select>
+              </div>
             </div>
             <div class="cars-list"></div>
           </div>
