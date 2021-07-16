@@ -18,8 +18,8 @@ module.exports = {
   },
 
   entry: {
-    index: "./src/pages/home/main.js",
-    details: "./src/pages/details/main.js",
+    index: ["./src/pages/home/main.js", "./src/pages/home/page.scss"],
+    details: ["./src/pages/details/main.js", "./src/pages/details/page.scss"],
   },
 
   output: {
