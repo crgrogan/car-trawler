@@ -23,6 +23,7 @@ const home = (function () {
 
   const addSelectChangeEventListener = (element) => {
     element.addEventListener("change", function () {
+      // get value of selected option in Sort By dropdown
       const sortOrder = this.options[this.selectedIndex].value;
       const sortedArray = sortArrayByPrice(carsArray, sortOrder);
       renderData(sortedArray);

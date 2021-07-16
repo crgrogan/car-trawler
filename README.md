@@ -26,6 +26,10 @@ To Start Development Server:
 
 `npm run start:dev`
 
+To Run Tests:
+
+`npm run test`
+
 To Build App for Production:
 
 `npm run build`
