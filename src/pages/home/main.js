@@ -11,13 +11,14 @@ const home = (function () {
   const init = () => {
     // if data was not stored locally you could
     // call a method here to fetch the data
+    const selectElement = document.querySelector("select[name=order]");
     const defaultOrder = "asc";
     const pickUpReturnInfo = data[0].VehAvailRSCore.VehRentalCore;
     const vendorsArray = data[0].VehAvailRSCore.VehVendorAvails;
+
+    addSelectChangeEventListener(selectElement);
     carsArray = flattenCarsArray(vendorsArray);
     const sortedArray = sortArrayByPrice(carsArray, defaultOrder);
-    const selectElement = document.querySelector("select[name=order]");
-    addSelectChangeEventListener(selectElement);
     renderData(sortedArray, pickUpReturnInfo);
   };
 

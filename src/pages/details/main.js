@@ -9,13 +9,19 @@ const details = (function () {
     const vendorCode = urlParams.get("vendor");
     const vehicleCode = urlParams.get("vehicle");
     const vendorsArray = data[0].VehAvailRSCore.VehVendorAvails;
-    const selectedVendor = vendorsArray.filter(
-      (vendor) => vendor.Vendor["@Name"] === vendorCode
-    );
-    const selectedVehicle = selectedVendor[0].VehAvails.filter(
-      (vehicle) => vehicle.Vehicle["@Code"] === vehicleCode
-    );
-    renderData(selectedVendor[0].Vendor, selectedVehicle[0]);
+    const selectedVendor = getSelectedVendor(vendorsArray, vendorCode);
+    const selectedVehicle = getSelectedVehicle(selectedVendor, vehicleCode);
+    renderData(selectedVendor.Vendor, selectedVehicle);
+  };
+
+  const getSelectedVendor = (vendors, code) => {
+    return vendors.filter((vendor) => vendor.Vendor["@Name"] === code)[0];
+  };
+
+  const getSelectedVehicle = (vendor, code) => {
+    return vendor.VehAvails.filter(
+      (vehicle) => vehicle.Vehicle["@Code"] === code
+    )[0];
   };
 
   const renderData = (vendor, vehicle) => {
