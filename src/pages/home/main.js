@@ -54,7 +54,7 @@ const home = (function () {
       pickUpLocation.textContent = pickUpReturnInfo.PickUpLocation["@Name"];
       pickUpTime.textContent = new Date(
         pickUpReturnInfo["@PickUpDateTime"]
-      ).toLocaleString("en-US", { hour12: false });
+      ).toLocaleString("en-GB");
 
       returnLocation.textContent = pickUpReturnInfo.ReturnLocation["@Name"];
       returnTime.textContent = new Date(
