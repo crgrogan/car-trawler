@@ -1,4 +1,4 @@
-# ECOM
+# CarTrawler
 
 A vanilla JavaScript application that displays a list of available rental cars and relevant details for each.
 
